@@ -55,12 +55,6 @@ steps:
         - cp ${{ODI_HOME}}/wlserver/modules/com.oracle.weblogic.persistence.jar ${{ODI_SDK}}
         - ls -l ${{ODI_SDK}}
 
-    publish_sdk:
-      title: Publish ODI SDK
-      image: ${{gradle_image}}
-      cmd:
-        - publishOdiSdk
-
     release_plugin:
       title: Release Plugin
       image: ${{gradle_image}}
@@ -83,17 +77,6 @@ steps:
         - build
         - copyBuildResources
         - publishVersionDocs
-
-    unit_tests:
-      title: Parse Gradle Test Reports
-      image: codefresh/cf-docker-test-reporting
-      working_directory: '${{CF_VOLUME_PATH}}/${{CF_REPO_NAME}}/build/reports/tests/'
-      environment:
-        - REPORT_DIR=test
-        - REPORT_INDEX_FILE=index.html
-        - CLEAR_TEST_REPORT=true
-        - BUCKET_NAME=rpa-checkmate-odi-reports
-        - CF_STORAGE_INTEGRATION=google-rpa-devops
 
     publish_plugin:
       title: Publish Plugin
