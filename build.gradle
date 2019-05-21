@@ -48,7 +48,7 @@ ext.odiSdkHome = "odi-sdk"
 
 gradlePlugin {
    plugins {
-      checkmateOdi {
+      odiApi {
          id = "com.redpillanalytics.${pluginName}"
          implementationClass = 'com.redpillanalytics.odi.api.OdiApiPlugin'
       }
@@ -61,7 +61,7 @@ pluginBundle {
    vcsUrl = "https://github.com/RedPillAnalytics/${rootProject.name}/"
 
    plugins {
-      checkmateOdi {
+      odiApi {
          displayName = pluginName
          tags = ['oracle', 'data-integration', 'etl', 'sdk']
          version = project.version
