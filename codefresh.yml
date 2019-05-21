@@ -78,11 +78,17 @@ steps:
         - copyBuildResources
         - publishVersionDocs
 
+    inspect_plugin:
+      title: Inspect Plugin
+      image: ${{odi_image}}
+      commands:
+        - ls -l ${{WORKSPACE}}/build/libs
+
     publish_plugin:
       title: Publish Plugin
       image: ${{gradle_image}}
       cmd:
-        - publishPlugins
+        - publishPlugins -Si
         - publishLatestDocs
         - githubRelease
       when:
