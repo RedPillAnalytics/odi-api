@@ -88,9 +88,10 @@ steps:
       title: Publish Plugin
       image: ${{gradle_image}}
       cmd:
-        - publishPlugins -Si
+        - publishPlugins
         - publishLatestDocs
         - githubRelease
+        - -Si
       when:
         condition:
           all:
