@@ -50,7 +50,7 @@ gradlePlugin {
    plugins {
       checkmateOdi {
          id = "com.redpillanalytics.${pluginName}"
-         implementationClass = 'com.redpillanalytics.odi.gradle.OdiSdkPlugin'
+         implementationClass = 'com.redpillanalytics.odi.sdk.OdiSdkPlugin'
       }
    }
 }
@@ -63,7 +63,7 @@ pluginBundle {
    plugins {
       checkmateOdi {
          displayName = pluginName
-         tags = ['oracle', 'data-integration', 'etl']
+         tags = ['oracle', 'data-integration', 'etl', 'sdk']
          version = project.version
       }
    }
