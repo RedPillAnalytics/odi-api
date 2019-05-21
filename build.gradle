@@ -101,6 +101,10 @@ task('cleanJunit', type: Delete) {
    delete getTestResultsDir()
 }
 
+task('cleanLibs', type: Delete) {
+   delete getLibsDir()
+}
+
 ext.docsBucket = 'documentation.redpillanalytics.com'
 ext.resourceBucket = 'rpa-build-resources'
 
