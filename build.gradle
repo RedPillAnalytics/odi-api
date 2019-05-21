@@ -40,7 +40,7 @@ allprojects {
 
 // Default artifact naming.
 group = 'com.redpillanalytics'
-ext.pluginName = 'checkmate.odi-sdk'
+ext.pluginName = 'checkmate.odi-api'
 
 // Build ODI container
 ext.odiVersion = '12.2.1.3.0'
@@ -50,13 +50,13 @@ gradlePlugin {
    plugins {
       checkmateOdi {
          id = "com.redpillanalytics.${pluginName}"
-         implementationClass = 'com.redpillanalytics.odi.sdk.OdiSdkPlugin'
+         implementationClass = 'com.redpillanalytics.odi.api.OdiApiPlugin'
       }
    }
 }
 
 pluginBundle {
-   description = "An SDK used by other Red Pill Analytics plugins for working with ODI."
+   description = "An API used by other Red Pill Analytics plugins for working with ODI."
    website = "https://github.com/RedPillAnalytics/${rootProject.name}/"
    vcsUrl = "https://github.com/RedPillAnalytics/${rootProject.name}/"
 
