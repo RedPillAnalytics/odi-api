@@ -1,2 +1,2 @@
-# odi-sdk
-An SDK used by Checkmate for working with ODI.
+# odi-api
+An API used by Checkmate for working with ODI.
