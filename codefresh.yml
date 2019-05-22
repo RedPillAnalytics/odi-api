@@ -66,7 +66,8 @@ steps:
         - clean
         - release
         - -Prelease.disableChecks
-        - -Prelease.localOnly
+        # Removed this because the githubRelease task is not working.
+        #- -Prelease.localOnly
       when:
         condition:
           all:
@@ -80,7 +81,6 @@ steps:
       cmd:
         - build
         - copyBuildResources
-        - publishVersionDocs
 
     inspect_plugin:
       title: Inspect Plugin
@@ -92,8 +92,10 @@ steps:
       title: Publish Plugin
       image: ${{gradle_image}}
       cmd:
+        - publishVersionDocs
         - publishLatestDocs
-        - githubRelease
+        # githubRelease is not working at the moment
+        #- githubRelease
         - publishPlugins
         - -Si
       when:
