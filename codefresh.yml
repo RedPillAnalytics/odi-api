@@ -63,16 +63,16 @@ steps:
       title: Release Plugin
       image: ${{gradle_image}}
       cmd:
-        - clean
+        - cleanLibs
         - release
         - -Prelease.disableChecks
         - -Prelease.localOnly
-#      when:
-#        condition:
-#          all:
-#            validateTargetBranch: '"${{CF_PULL_REQUEST_TARGET}}" == "master"'
-#            prActionClose: '"${{CF_PULL_REQUEST_ACTION}}" == "closed"'
-#            prActionMerge: '"${{CF_PULL_REQUEST_MERGED}}" == "true"'
+      when:
+        condition:
+          all:
+            validateTargetBranch: '"${{CF_PULL_REQUEST_TARGET}}" == "master"'
+            prActionClose: '"${{CF_PULL_REQUEST_ACTION}}" == "closed"'
+            prActionMerge: '"${{CF_PULL_REQUEST_MERGED}}" == "true"'
     
     build_plugin:
       title: Build Plugin
@@ -100,12 +100,12 @@ steps:
         - githubRelease
         - publishPlugins
         - -Si
-#      when:
-#        condition:
-#          all:
-#            validateTargetBranch: '"${{CF_PULL_REQUEST_TARGET}}" == "master"'
-#            prActionClose: '"${{CF_PULL_REQUEST_ACTION}}" == "closed"'
-#            prActionMerge: '"${{CF_PULL_REQUEST_MERGED}}" == "true"'
+      when:
+        condition:
+          all:
+            validateTargetBranch: '"${{CF_PULL_REQUEST_TARGET}}" == "master"'
+            prActionClose: '"${{CF_PULL_REQUEST_ACTION}}" == "closed"'
+            prActionMerge: '"${{CF_PULL_REQUEST_MERGED}}" == "true"'
 
     analytics_producer:
       title: Analytics Producer
