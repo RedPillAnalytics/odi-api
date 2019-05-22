@@ -79,9 +79,9 @@ githubRelease {
 }
 
 dependencies {
-   compile gradleApi()
-   compile localGroovy()
-   compile group: 'org.slf4j', name: 'slf4j-simple', version: '+'
+   shadow gradleApi()
+   shadow localGroovy()
+   shadow 'org.slf4j:slf4j-simple:+'
 
    // ODI JAR files copied from Docker container
    compile fileTree(dir: "$odiSdkHome/$odiVersion", include: '*.jar')
