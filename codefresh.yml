@@ -79,6 +79,8 @@ steps:
       image: ${{gradle_image}}
       cmd:
         - release
+        - -Prelease.disableChecks
+        - -Prelease.localOnly
         - -Prelease.dryRun
         - build
         - copyBuildResources
