@@ -66,8 +66,7 @@ steps:
         - clean
         - release
         - -Prelease.disableChecks
-        # Removed this because the githubRelease task is not working.
-        #- -Prelease.localOnly
+        - -Prelease.localOnly
       when:
         condition:
           all:
@@ -94,8 +93,7 @@ steps:
       cmd:
         - publishVersionDocs
         - publishLatestDocs
-        # githubRelease is not working at the moment
-        #- githubRelease
+        - githubRelease
         - publishPlugins
         - -Si
       when:
