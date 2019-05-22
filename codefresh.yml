@@ -78,6 +78,8 @@ steps:
       title: Build Plugin
       image: ${{gradle_image}}
       cmd:
+        - release
+        - -Prelease.dryRun
         - build
         - copyBuildResources
 
@@ -85,7 +87,7 @@ steps:
       title: Inspect Plugin
       image: ${{odi_image}}
       commands:
-        - ls -l build/libs
+        - ls -lh build/libs
 
     publish_plugin:
       title: Publish Plugin
