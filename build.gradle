@@ -11,7 +11,7 @@ plugins {
    id "com.github.ben-manes.versions" version "0.21.0"
    id 'com.adarshr.test-logger' version '1.6.0'
    id "com.redpillanalytics.gradle-analytics" version "1.2.3"
-   id "com.redpillanalytics.gradle-aws" version "0.1.2"
+   id "com.redpillanalytics.gradle-aws" version "0.1.3"
 }
 
 // send analytics
