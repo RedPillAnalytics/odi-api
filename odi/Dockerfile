@@ -4,10 +4,11 @@ ENV JAVA_HOME=/usr/java/jdk1.8.0_211-amd64 \
     ODI_JAR=fmw_12.2.1.3.0_odi.jar \
     ODI_JAR2=fmw_12.2.1.3.0_odi2.jar \
     ORACLE_HOME=/u01/oracle/odi1 \
-    PATH=$PATH:/u01/oracle/oracle_common/common/bin:/u01/oracle/container-scripts \
     ODI_AGENT_PORT=20910 \
     DOMAIN_NAME="${DOMAIN_NAME:-base_domain}" \
     DOMAIN_ROOT="${DOMAIN_ROOT:-/u01/oracle/user_projects/domains}"
+
+ENV PATH=$PATH:$ORACLE_HOME/oracle_common/common/bin:$ORACLE_HOME/container-scripts:$ORACLE_HOME/OPatch
 
 RUN yum -y install wget which unzip make gcc && \
     wget -q -O jdk-8u211-linux-x64.rpm https://s3.amazonaws.com/rpa-checkmate-resources/java/jdk-8u211-linux-x64.rpm && \
@@ -38,3 +39,10 @@ RUN chown oracle:oracle -R /u01 && \
     chmod a+xr /u01/oracle/container-scripts/*.*
 
 RUN su-exec oracle $JAVA_HOME/bin/java -jar $ODI_JAR -silent -invPtrLoc /u01/oraInst.loc -jreLoc $JAVA_HOME -ignoreSysPrereqs -force -novalidation ORACLE_HOME=$ORACLE_HOME INSTALL_TYPE="Standalone Installation"
+
+RUN wget -q -O p29643497_122130_Generic.zip https://s3.amazonaws.com/rpa-checkmate-resources/odi/12.2.1.3.190515/software/p29643497_122130_Generic.zip  && \
+    unzip -q p29643497_122130_Generic.zip && \
+    chown oracle:oracle -R 29643497
+
+RUN cd 29643497 && \
+    su-exec oracle opatch apply -silent
