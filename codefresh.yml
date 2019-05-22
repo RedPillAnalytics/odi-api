@@ -63,7 +63,7 @@ steps:
       title: Release Plugin
       image: ${{gradle_image}}
       cmd:
-        - clean
+        - cleanLibs
         - release
         - -Prelease.disableChecks
         - -Prelease.localOnly
