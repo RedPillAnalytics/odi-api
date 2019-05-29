@@ -43,7 +43,7 @@ steps:
       title: Inspect ODI SDK
       image: ${{gradle_image}}
       commands:
-        - echo "Location: $PWD"
+        - echo "Location:" && echo $PWD
         - echo "Current listing:" && ls -lh $PWD
         - echo "Workspace listing:" && ls -lh $WORKSPACE
         - echo "Build listing:" && ls -lh $WORKSPACE/build
