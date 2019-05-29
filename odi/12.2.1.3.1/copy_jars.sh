@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+mkdir -p ${ODI_SDK}
+chmod -R u+wr ${ODI_SDK}
 cp ${ORACLE_HOME}/jdeveloper/external/oracle.external.ucp.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/jdeveloper/ide/extensions/oracle.ide.persistence.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/XmlSchema-1.4.2.jar ${ODI_SDK}
