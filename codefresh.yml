@@ -41,7 +41,7 @@ steps:
 
     inspect_sdk:
       title: Inspect ODI SDK
-      image: ${{gradle_image}}
+      image: alpine:latest
       commands:
         - echo "Location:" && echo $PWD
         - echo "Current listing:" && ls -lh $PWD
@@ -77,7 +77,7 @@ steps:
 
     inspect_plugin:
       title: Inspect Plugin
-      image: ${{odi_image}}
+      image: alpine:latest
       commands:
         - ls -lh build/libs
 
