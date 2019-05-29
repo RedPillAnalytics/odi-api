@@ -1,22 +1,22 @@
 version: '1.0'
 steps:
-  
-    define_vars:
-      title: Define Variables
-      image: alpine:latest
-      commands:
-        - cf_export WORKSPACE=$CF_VOLUME_PATH/$CF_REPO_NAME
 
     main_clone:
       title: Cloning main repository...
       type: git-clone
-      repo: ${{WORKSPACE}}
+      repo: $CF_VOLUME_PATH/$CF_REPO_NAME
       revision: ${{CF_REVISION}}
 
     gradle_image:
       title: Build Gradle Image
       type: build
       image_name: gradle
+
+    define_vars:
+      title: Define Variables
+      image: ${{gradle_image}}
+      commands:
+        - cf_export WORKSPACE=$CF_VOLUME_PATH/$CF_REPO_NAME
 
     odi_images:
       title: Build ODI Images
