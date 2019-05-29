@@ -60,21 +60,21 @@ steps:
           image: ${{image_122130}}
           working_directory: odi/12.2.1.3.0
           commands:
-            - copy_jars.sh
+            - /copy_jars.sh
 
         sdk_122131:
           title: Build ODI SDK for 12.2.1.3.1
           image: ${{image_122131}}
           working_directory: odi/12.2.1.3.1
           commands:
-            - copy_jars.sh
+            - /copy_jars.sh
 
         sdk_122132:
           title: Build ODI SDK for 12.2.1.3.2
           image: ${{image_122132}}
           working_directory: odi/12.2.1.3.2
           commands:
-            - copy_jars.sh
+            - /copy_jars.sh
 
     inspect_sdk:
       title: Inspect ODI SDK
