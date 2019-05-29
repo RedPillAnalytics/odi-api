@@ -8,8 +8,4 @@ COPY copy_jars.sh ./
 
 RUN chmod u+x copy_jars.sh && \
     mkdir -p ${ODI_SDK} && \
-    chmod -R u+wr ${ODI_SDK} && \
-    ./copy_jars.sh && \
-    cd ${ODI_SDK} && \
-    echo "Location: $PWD" && \
-    echo `ls`
+    chmod -R u+wr ${ODI_SDK}
