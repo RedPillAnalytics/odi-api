@@ -11,4 +11,5 @@ RUN chmod u+x copy_jars.sh && \
     chmod -R u+wr ${ODI_SDK} && \
     ./copy_jars.sh && \
     cd ${ODI_SDK} && \
-    echo "Location: $PWD"
+    echo "Location: $PWD" && \
+    echo `ls`
