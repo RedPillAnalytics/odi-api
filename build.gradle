@@ -27,21 +27,21 @@ analytics {
 
 scmVersion {
    tag {
-      prefix = 'v'
-      versionSeparator = ''
+      prefix = "v${odiVersion}"
+      versionSeparator = '-'
    }
    ignoreUncommittedChanges = true
 }
 
 //set Gradle version to SCM Version
 allprojects {
-   project.version = "${odiVersion}-${scmVersion.version}"
+   project.version = "${scmVersion.version}"
 }
 
 gradlePlugin {
    plugins {
       odiApi {
-         id = "com.redpillanalytics.${pluginBase}.${odiVersion}"
+         id = "com.redpillanalytics.${pluginBase}"
          implementationClass = 'com.redpillanalytics.odi.api.OdiApiPlugin'
       }
    }
