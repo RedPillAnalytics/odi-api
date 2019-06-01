@@ -128,7 +128,7 @@ task copyBuildResources(type: S3DownloadSyncTask) {
    filePath gradle.getGradleUserHomeDir().toString()
 }
 
-FilenameFilter filter = { dir, filename -> filename.contains(project.version) }
+FilenameFilter filter = { dir, filename -> filename.contains("${rootProject.name}-${project.version}") }
 
 githubRelease {
    token = githubToken
