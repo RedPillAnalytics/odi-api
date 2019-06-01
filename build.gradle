@@ -4,14 +4,14 @@ import com.redpillanalytics.aws.tasks.S3DownloadSyncTask
 plugins {
    id "com.gradle.plugin-publish" version "0.10.1"
    id "pl.allegro.tech.build.axion-release" version "1.10.1"
-   id "com.github.breadmoirai.github-release" version "2.2.8"
+   id "com.github.breadmoirai.github-release" version "2.2.9"
    id 'groovy'
    id 'java-gradle-plugin'
    id "com.github.johnrengelman.shadow" version "5.0.0"
    id "com.github.ben-manes.versions" version "0.21.0"
-   id 'com.adarshr.test-logger' version '1.6.0'
+   id 'com.adarshr.test-logger' version '1.7.0'
    id "com.redpillanalytics.gradle-analytics" version "1.2.3"
-   id "com.redpillanalytics.gradle-aws" version "0.1.3"
+   id "com.redpillanalytics.gradle-aws" version "0.1.4"
 }
 
 // send analytics
@@ -35,21 +35,13 @@ scmVersion {
 
 //set Gradle version to SCM Version
 allprojects {
-   project.version = scmVersion.version
+   project.version = "${odiVersion}-${scmVersion.version}"
 }
-
-// Default artifact naming.
-group = 'com.redpillanalytics'
-ext.pluginName = 'checkmate.odi-api'
-
-// Build ODI container
-ext.odiVersion = '12.2.1.3.0'
-ext.odiSdkHome = "odi-sdk"
 
 gradlePlugin {
    plugins {
       odiApi {
-         id = "com.redpillanalytics.${pluginName}"
+         id = "com.redpillanalytics.${pluginBase}.${odiVersion}"
          implementationClass = 'com.redpillanalytics.odi.api.OdiApiPlugin'
       }
    }
@@ -62,20 +54,11 @@ pluginBundle {
 
    plugins {
       odiApi {
-         displayName = pluginName
+         displayName = "ODI API"
          tags = ['oracle', 'data-integration', 'etl', 'sdk']
          version = project.version
       }
    }
-}
-
-githubRelease {
-   token = githubToken
-   owner = 'RedPillAnalytics'
-   repo = rootProject.name
-   tagName = "v${version}"
-   // upload of assets is erroring at the monent.
-   //releaseAssets = fileTree(dir: buildDir, includes: ["**/*${version}*", "**/*${version}*.jar"]).toList()
 }
 
 dependencies {
@@ -99,13 +82,22 @@ shadowJar {
 }
 tasks.build.dependsOn tasks.shadowJar
 
-task('cleanJunit', type: Delete) {
+task cleanJunit(type: Delete) {
    delete getTestResultsDir()
 }
 
-task('cleanLibs', type: Delete) {
+task cleanLibs(type: Delete) {
    delete getLibsDir()
 }
+
+task('sdk', type: Zip) {
+   group "build"
+   description "Build a distribution ZIP of the ODI SDK."
+   includeEmptyDirs false
+   from "$odiSdkHome/$odiVersion"
+}
+
+tasks.build.dependsOn tasks.sdk
 
 ext.docsBucket = 'documentation.redpillanalytics.com'
 ext.resourceBucket = 'rpa-build-resources'
@@ -134,4 +126,14 @@ task copyBuildResources(type: S3DownloadSyncTask) {
    bucketName resourceBucket
    keyName 'gradle'
    filePath gradle.getGradleUserHomeDir().toString()
+}
+
+FilenameFilter filter = { dir, filename -> filename.contains(project.version) }
+
+githubRelease {
+   token = githubToken
+   owner = 'RedPillAnalytics'
+   repo = rootProject.name
+   tagName = "v${version}"
+   releaseAssets = [jar.destinationDir.listFiles(filter), sdk.destinationDir.listFiles(filter)]
 }
