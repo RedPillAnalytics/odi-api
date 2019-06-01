@@ -27,15 +27,15 @@ analytics {
 
 scmVersion {
    tag {
-      prefix = 'v'
-      versionSeparator = ''
+      prefix = "v${odiVersion}"
+      versionSeparator = '-'
    }
    ignoreUncommittedChanges = true
 }
 
 //set Gradle version to SCM Version
 allprojects {
-   project.version = "${odiVersion}-${scmVersion.version}"
+   project.version = "${scmVersion.version}"
 }
 
 gradlePlugin {
