@@ -61,14 +61,6 @@ pluginBundle {
    }
 }
 
-githubRelease {
-   token = githubToken
-   owner = 'RedPillAnalytics'
-   repo = rootProject.name
-   tagName = "v${version}"
-   releaseAssets = fileTree(dir: buildDir, includes: ["**/*${version}*.zip", "**/*${version}*.jar"]).toList()
-}
-
 dependencies {
    shadow gradleApi()
    shadow localGroovy()
@@ -102,9 +94,7 @@ task('sdk', type: Zip) {
    group "build"
    description "Build a distribution ZIP of the ODI SDK."
    includeEmptyDirs false
-   //from "$odiSdkHome/$odiVersion"
-   from "build/libs"
-   doFirst {logger.warn "SDK: $odiSdkHome/$odiVersion"}
+   from "$odiSdkHome/$odiVersion"
 }
 
 tasks.build.dependsOn tasks.sdk
@@ -136,4 +126,14 @@ task copyBuildResources(type: S3DownloadSyncTask) {
    bucketName resourceBucket
    keyName 'gradle'
    filePath gradle.getGradleUserHomeDir().toString()
+}
+
+FilenameFilter filter = { dir, filename -> filename.contains(project.version) }
+
+githubRelease {
+   token = githubToken
+   owner = 'RedPillAnalytics'
+   repo = rootProject.name
+   tagName = "v${version}"
+   releaseAssets = [jar.destinationDir.listFiles(filter), sdk.destinationDir.listFiles(filter)]
 }

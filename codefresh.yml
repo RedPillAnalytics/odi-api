@@ -66,11 +66,11 @@ steps:
         - build
         - copyBuildResources
 
-    inspect_plugin:
-      title: Inspect Plugin
+    inspect_build:
+      title: Inspect Build Directory
       image: alpine:latest
       commands:
-        - ls -lh build/libs
+        - ls -lhR build
 
     publish_plugin:
       title: Publish Plugin
