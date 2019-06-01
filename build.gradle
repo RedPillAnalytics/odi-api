@@ -41,7 +41,7 @@ allprojects {
 gradlePlugin {
    plugins {
       odiApi {
-         id = "com.redpillanalytics.${pluginBase}.${odiVersion}"
+         id = "com.redpillanalytics.${pluginBase}"
          implementationClass = 'com.redpillanalytics.odi.api.OdiApiPlugin'
       }
    }
