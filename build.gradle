@@ -27,8 +27,8 @@ analytics {
 
 scmVersion {
    tag {
-      prefix = "v${odiVersion}"
-      versionSeparator = '-'
+      prefix = "v"
+      versionSeparator = ''
    }
    ignoreUncommittedChanges = true
 }
