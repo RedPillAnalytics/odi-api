@@ -77,8 +77,10 @@ repositories {
 //customize ShadowJar
 jar.enabled = false
 shadowJar {
-  classifier = null
-  zip64 = true
+   classifier = null
+   zip64 = true
+   exclude 'org/gradle/**'
+   exclude 'org/codehaus/groovy/**'
 }
 tasks.build.dependsOn tasks.shadowJar
 
