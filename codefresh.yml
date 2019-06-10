@@ -65,6 +65,7 @@ steps:
         - -Prelease.dryRun
         - build
         - copyBuildResources
+        - -Si
 
     inspect_build:
       title: Inspect Build Directory
