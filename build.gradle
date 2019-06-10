@@ -81,6 +81,8 @@ shadowJar {
    zip64 = true
    exclude 'org/gradle/**'
    exclude 'org/codehaus/groovy/**'
+   exclude 'org/slf4j/**'
+   exclude 'javax/xml/parsers/**'
 }
 tasks.build.dependsOn tasks.shadowJar
 
