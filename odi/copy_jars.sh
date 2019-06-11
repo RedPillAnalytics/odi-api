@@ -7,7 +7,6 @@ cp ${ORACLE_HOME}/odi/sdk/lib/XmlSchema-1.4.2.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/activation.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/aopalliance.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/bsf.jar ${ODI_SDK}
-cp ${ORACLE_HOME}/odi/sdk/lib/commons-beanutils-1.7.0.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/commons-codec-1.3.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/commons-discovery-0.4.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/commons-logging-1.2.jar ${ODI_SDK}
@@ -75,6 +74,7 @@ cp ${ORACLE_HOME}/oracle_common/modules/oracle.toplink/org.eclipse.persistence.t
 cp ${ORACLE_HOME}/oracle_common/modules/org.apache.maven_3.2.5/lib/commons-lang-2.6.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/thirdparty/bsh-2.0b4.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/thirdparty/commons-collections-3.2.2.jar ${ODI_SDK}
+cp ${ORACLE_HOME}/oracle_common/modules/thirdparty/commons-beanutils-1.9.3.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/thirdparty/jackson-core-2.7.9.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/thirdparty/jackson-databind-2.7.9.1.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/thirdparty/features/bsh.vb4.jar ${ODI_SDK}

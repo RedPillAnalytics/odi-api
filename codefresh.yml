@@ -73,6 +73,17 @@ steps:
       commands:
         - ls -lhR build
 
+    unit_tests:
+      title: Parse Gradle Test Reports
+      image: codefresh/cf-docker-test-reporting
+      working_directory: '${{CF_VOLUME_PATH}}/${{CF_REPO_NAME}}/build/reports/tests/'
+      environment:
+        - REPORT_DIR=test
+        - REPORT_INDEX_FILE=index.html
+        - CLEAR_TEST_REPORT=true
+        - BUCKET_NAME=rpa-odi-api
+        - CF_STORAGE_INTEGRATION=rpa-test-reports
+
     publish_plugin:
       title: Publish Plugin
       image: ${{gradle_image}}

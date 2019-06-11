@@ -42,7 +42,7 @@ gradlePlugin {
    plugins {
       odiApi {
          id = "com.redpillanalytics.${pluginBase}"
-         implementationClass = 'com.redpillanalytics.odi.api.OdiApiPlugin'
+         implementationClass = 'com.redpillanalytics.odi.api.gradle.OdiApiPlugin'
       }
    }
 }
@@ -66,8 +66,14 @@ dependencies {
    shadow localGroovy()
    shadow 'org.slf4j:slf4j-simple:+'
 
+   // REST API library
+   compile 'com.mashape.unirest:unirest-java:+'
+
    // ODI JAR files copied from Docker container
    compile fileTree(dir: "$odiSdkHome/$odiVersion", include: '*.jar')
+   
+   // testing framework
+   testCompile 'org.spockframework:spock-core:1.2-groovy-2.5'
 }
 
 repositories {
@@ -140,4 +146,9 @@ githubRelease {
    repo = rootProject.name
    tagName = "v${version}"
    releaseAssets = [jar.destinationDir.listFiles(filter), sdk.destinationDir.listFiles(filter)]
+}
+
+tasks.withType(Test) {
+   testLogging.showStandardStreams true
+   systemProperty 'projectDir', temporaryDir
 }
