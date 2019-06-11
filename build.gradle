@@ -83,6 +83,7 @@ shadowJar {
    exclude 'org/codehaus/groovy/**'
    exclude 'org/slf4j/**'
 }
+
 tasks.build.dependsOn tasks.shadowJar
 
 task cleanJunit(type: Delete) {
