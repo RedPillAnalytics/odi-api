@@ -42,7 +42,7 @@ gradlePlugin {
    plugins {
       odiApi {
          id = "com.redpillanalytics.${pluginBase}"
-         implementationClass = 'com.redpillanalytics.odi.api.OdiApiPlugin'
+         implementationClass = 'com.redpillanalytics.odi.api.gradle.OdiApiPlugin'
       }
    }
 }

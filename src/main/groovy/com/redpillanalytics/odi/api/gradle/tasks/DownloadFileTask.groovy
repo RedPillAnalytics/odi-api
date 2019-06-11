@@ -1,4 +1,4 @@
-package com.redpillanalytics.odi.api
+package com.redpillanalytics.odi.api.gradle.tasks
 
 import groovy.util.logging.Slf4j
 import org.gradle.api.DefaultTask

@@ -1,4 +1,4 @@
-package com.redpillanalytics.odi.api
+package com.redpillanalytics.odi.api.gradle
 
 class OdiApiPluginExtension {
 

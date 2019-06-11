@@ -1,5 +1,7 @@
-package com.redpillanalytics.odi.api
+package com.redpillanalytics.odi.api.gradle
 
+import com.redpillanalytics.odi.api.gradle.tasks.DownloadFileTask
+import com.redpillanalytics.odi.api.GitHub
 import groovy.util.logging.Slf4j
 import org.gradle.api.Plugin
 import org.gradle.api.Project
