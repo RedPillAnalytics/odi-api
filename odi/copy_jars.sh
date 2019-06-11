@@ -84,5 +84,4 @@ cp ${ORACLE_HOME}/jdeveloper/external/oracle.external.eclipselinkjaxb.jar ${ODI_
 cp ${ORACLE_HOME}/oracle_common/modules/oracle.toplink/eclipselink-dbwsutils.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/com.sun.xml.ws.sdo-eclipselink-plugin.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/com.sun.xml.ws.jaxws-eclipselink-plugin.jar ${ODI_SDK}
-cp ${ORACLE_HOME}/oracle_common/modules/oracle.xdk/xmlparserv2.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/wlserver/modules/com.oracle.core.eclipselink.integration.jar ${ODI_SDK}
