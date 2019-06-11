@@ -81,16 +81,15 @@ repositories {
 }
 
 //customize ShadowJar
-jar.enabled = false
-shadowJar {
-   classifier = null
-   zip64 = true
-   exclude 'org/gradle/**'
-   exclude 'org/codehaus/groovy/**'
-   exclude 'org/slf4j/**'
-}
-
-tasks.build.dependsOn tasks.shadowJar
+//jar.enabled = false
+//shadowJar {
+//   classifier = null
+//   zip64 = true
+//   exclude 'org/gradle/**'
+//   exclude 'org/codehaus/groovy/**'
+//   exclude 'org/slf4j/**'
+//}
+//tasks.build.dependsOn tasks.shadowJar
 
 task cleanJunit(type: Delete) {
    delete getTestResultsDir()
