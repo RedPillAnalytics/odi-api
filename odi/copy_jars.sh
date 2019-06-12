@@ -55,7 +55,6 @@ cp ${ORACLE_HOME}/odi/sdk/lib/spring-webmvc.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/svnkit-1.8.3.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/trilead-ssh2-1.0.0-build217.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/trove.jar ${ODI_SDK}
-cp ${ORACLE_HOME}/odi/sdk/lib/slf4j-simple-1.7.5.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/oracle.ucp.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/javax.persistence.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/oracle.idm/identitystore.jar ${ODI_SDK}
