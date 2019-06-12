@@ -7,7 +7,7 @@ plugins {
    id "com.github.breadmoirai.github-release" version "2.2.9"
    id 'groovy'
    id 'java-gradle-plugin'
-   id "com.github.johnrengelman.shadow" version "5.0.0"
+   //id "com.github.johnrengelman.shadow" version "5.0.0"
    id "com.github.ben-manes.versions" version "0.21.0"
    id 'com.adarshr.test-logger' version '1.7.0'
    id "com.redpillanalytics.gradle-analytics" version "1.2.3"
@@ -62,15 +62,12 @@ pluginBundle {
 }
 
 dependencies {
-   shadow gradleApi()
-   shadow localGroovy()
-   shadow 'org.slf4j:slf4j-simple:+'
+   compile gradleApi()
+   compile localGroovy()
+   compile 'org.slf4j:slf4j-simple:+'
 
    // REST API library
    compile 'com.mashape.unirest:unirest-java:+'
-
-   // ODI JAR files copied from Docker container
-   compile fileTree(dir: "$odiSdkHome/$odiVersion", include: '*.jar')
    
    // testing framework
    testCompile 'org.spockframework:spock-core:1.2-groovy-2.5'
@@ -97,6 +94,10 @@ task cleanJunit(type: Delete) {
 
 task cleanLibs(type: Delete) {
    delete getLibsDir()
+}
+
+task cleanDists(type: Delete) {
+   delete getDistsDir()
 }
 
 task('sdk', type: Zip) {

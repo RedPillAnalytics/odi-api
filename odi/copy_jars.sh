@@ -3,6 +3,8 @@ mkdir -p ${ODI_SDK}
 chmod -R u+wr ${ODI_SDK}
 cp ${ORACLE_HOME}/jdeveloper/external/oracle.external.ucp.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/jdeveloper/ide/extensions/oracle.ide.persistence.jar ${ODI_SDK}
+cp ${ORACLE_HOME}/jdeveloper/external/oracle.external.eclipselinkjaxb.jar ${ODI_SDK}
+cp ${ORACLE_HOME}/jdeveloper/wlserver/lib/wls-classes-for-jdev.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/XmlSchema-1.4.2.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/activation.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/odi/sdk/lib/aopalliance.jar ${ODI_SDK}
@@ -80,7 +82,6 @@ cp ${ORACLE_HOME}/oracle_common/modules/thirdparty/jackson-databind-2.7.9.1.jar 
 cp ${ORACLE_HOME}/oracle_common/modules/thirdparty/features/bsh.vb4.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/wlserver/modules/com.oracle.weblogic.rac.ucp.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/wlserver/modules/com.oracle.weblogic.persistence.jar ${ODI_SDK}
-cp ${ORACLE_HOME}/jdeveloper/external/oracle.external.eclipselinkjaxb.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/oracle.toplink/eclipselink-dbwsutils.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/com.sun.xml.ws.sdo-eclipselink-plugin.jar ${ODI_SDK}
 cp ${ORACLE_HOME}/oracle_common/modules/com.sun.xml.ws.jaxws-eclipselink-plugin.jar ${ODI_SDK}
