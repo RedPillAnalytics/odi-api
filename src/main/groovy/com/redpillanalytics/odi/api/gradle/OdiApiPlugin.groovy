@@ -16,7 +16,7 @@ class OdiApiPlugin implements Plugin<Project> {
          extensions.create('odiApi', OdiApiPluginExtension)
       }
 
-      log.warn "Group: ${project.odiApi.taskGroup}"
+      log.debug "Task Group: ${project.odiApi.taskGroup}"
 
       // configure api download tasks
       GitHub gitHub = new GitHub(owner: project.odiApi.repoOwner, repo: project.odiApi.repo)
