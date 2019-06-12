@@ -5,7 +5,7 @@ import com.redpillanalytics.odi.api.GitHub
 import groovy.util.logging.Slf4j
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.tasks.Copy
+import org.gradle.api.tasks.Sync
 
 @Slf4j
 class OdiApiPlugin implements Plugin<Project> {
@@ -28,7 +28,7 @@ class OdiApiPlugin implements Plugin<Project> {
          filePath project.odiApi.downloadPath
       }
 
-      project.task('extractApi', type: Copy) {
+      project.task('extractApi', type: Sync) {
          description = "Extract the ODI API zip file."
          group project.odiApi.taskGroup
          from project.zipTree(project.odiApi.downloadPath)
