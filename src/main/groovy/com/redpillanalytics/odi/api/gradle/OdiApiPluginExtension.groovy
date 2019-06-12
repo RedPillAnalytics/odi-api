@@ -18,17 +18,22 @@ class OdiApiPluginExtension {
    String repo = 'odi-api'
 
    /**
-    * ODI API ZIP location.
+    * ODI API release asset download location.
     */
-   String filePath = 'odi-sdk'
+   String downloadPath = 'build/download/odi-api.zip'
 
    /**
-    * ODI API pattern.
+    * ODI API release asset unzip location.
+    */
+   String libsDir = 'libs'
+
+   /**
+    * ODI API release asset match pattern.
     */
    String assetPattern = /(odi-api)(.+)(\.zip)/
 
    /**
-    * ODI API version.
+    * ODI API release version.
     */
    String assetVersion = 'latest'
 }

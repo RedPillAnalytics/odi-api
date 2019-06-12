@@ -22,17 +22,12 @@ class ExtractApiTest extends Specification {
    @Shared
    AntBuilder ant = new AntBuilder()
 
-   def setupSpec() {
-      ant.delete(dir: projectDir)
-      ant.mkdir(dir: projectDir)
-   }
-
    def setup() {
 
       projectDir = new File("${System.getProperty("projectDir")}/$projectName")
       buildDir = new File(projectDir, 'build')
-      artifact = new File(projectDir,'odi-sdk.zip')
-      artifactDir = new File(projectDir,'odi-sdk')
+      artifact = new File(buildDir,'download/odi-api.zip')
+      artifactDir = new File(projectDir,'libs')
       odiPassword = System.getProperty("odiPassword")
       masterPassword = System.getProperty("masterPassword")
       masterUrl = System.getProperty("masterUrl")

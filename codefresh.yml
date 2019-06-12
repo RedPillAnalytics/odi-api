@@ -45,6 +45,7 @@ steps:
       image: ${{gradle_image}}
       cmd:
         - cleanLibs
+        - cleanDists
         - release
         - -Prelease.disableChecks
         - -Prelease.localOnly
